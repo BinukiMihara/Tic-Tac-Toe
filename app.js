@@ -1,7 +1,8 @@
 const cells = document.querySelectorAll(".cell");
 const popUp = document.querySelector(".popup");
-const result  = document.querySelector("#winner");
-const newgame = document.querySelector("#NewGame");
+const result  = document.getElementById("winner");
+const newgame = document.getElementById("NewGame");
+const pTurn = document.querySelector(".turn");
 
 let player = true;
 let counter = 0 ;
@@ -47,9 +48,17 @@ function executeGame(){
 
    if(counter==9){            //condition to tie the game
     popUp.style.display = "flex";
-    result.innerText = "Tie..." ;
+    result.innerText = "Match is Draw" ;
     return ;
    }
+
+   //dynamically change the player turn
+   if(player){
+    pTurn.innerText = "Player X Turn";
+   }else{
+    pTurn.innerText = "Player O Turn";
+   }
+
 }
 
 function StartAgain(){           //start a new game by clicking on Play Again button
@@ -61,6 +70,8 @@ function StartAgain(){           //start a new game by clicking on Play Again bu
     startGame(); 
     player = true;
     counter = 0 ;
+
+    pTurn.innerText = "Player X Turn";  //set X as first player
 
 }
 

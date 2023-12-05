@@ -11,6 +11,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+
+.turn{
+    position: absolute;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(189, 15, 143);
+    top: 70px;
+
 }
 
 .game{
@@ -19,6 +29,7 @@
     gap: 5px;
 
 }
+
 .cell{
     width: 120px;
     height: 120px;
