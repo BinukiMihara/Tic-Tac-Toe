@@ -1,9 +1,12 @@
 const cells = document.querySelectorAll(".cell");
 const popUp = document.querySelector(".popup");
-const result  = document.querySelector(".winner");
+const result  = document.querySelector("#winner");
+const newgame = document.querySelector("#NewGame");
 
 let player = true;
 let counter = 0 ;
+
+newgame.addEventListener("click",StartAgain);
 
 function startGame(){
     cells.forEach(cell=>{
@@ -37,14 +40,28 @@ function executeGame(){
    )
    {
     popUp.style.display = "flex";
-    result.innerText = player?"X is the Winner!":"O is the Winner!";
-    return console.log("win")
+    result.innerText = player?"O is the Winner!":"X is the Winner!";
+    return; 
  
    }
 
    if(counter==9){            //condition to tie the game
-    console.log("Tie");
+    popUp.style.display = "flex";
+    result.innerText = "Tie..." ;
+    return ;
    }
+}
+
+function StartAgain(){           //start a new game by clicking on Play Again button
+    popUp.style.display = "none";
+    cells.forEach(cell=>{
+        cell.innerText = "";
+
+    })
+    startGame(); 
+    player = true;
+    counter = 0 ;
+
 }
 
 startGame();   //call the function to start the game
