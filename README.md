@@ -1,2 +1,2 @@
 # Tic-Tac-Toe
-A game
+ Tic tac toe is a two player game using HTML, CSS & Javascript
