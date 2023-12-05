@@ -1,4 +1,7 @@
 const cells = document.querySelectorAll(".cell");
+const popUp = document.querySelector(".popup");
+const result  = document.querySelector(".winner");
+
 let player = true;
 let counter = 0 ;
 
@@ -33,11 +36,13 @@ function executeGame(){
       (value3!=""&&value3==value5&&value5==value7)
    )
    {
+    popUp.style.display = "flex";
+    result.innerText = player?"X is the Winner!":"O is the Winner!";
     return console.log("win")
  
    }
 
-   if(counter==9){
+   if(counter==9){            //condition to tie the game
     console.log("Tie");
    }
 }
